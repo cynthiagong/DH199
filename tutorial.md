@@ -39,6 +39,8 @@ The specific purpose of this tutorial is to leverage the power of Shiny to allow
 Check out this [gallery](https://shiny.rstudio.com/gallery/) for some ideas of what Shiny can help you create! 
 
 ## **Getting Started:** <a id="getting-started"></a>
+To preface, this tutorial was created on a Windows OS; as a result, there may be slight visual and functional differences when using a Mac.
+
 ### Things to Download: <a id="things-to-download"></a>
 As a refresher, the following will be needed to code with R and use the Shiny package:
 + [R](https://cran.r-project.org/bin/windows/base/)
@@ -47,7 +49,7 @@ As a refresher, the following will be needed to code with R and use the Shiny pa
 ### Setting Up the Directory <a id="setting-up-directory"></a>
 Next step is to set a working directory to store all your web app files in. 
 
-First, create a new folder and give it a specific name; the location of the folder does not matter as long as you remember its file path.
+First, create a new folder on your device and give it a specific name; the location of the folder does not matter as long as you remember its file path.
 
 Next, in RStudio, go to **Session > Set Working Directory > Choose Directory** and select the folder you just created. You can also use the function **setwd()**.
 
@@ -59,6 +61,10 @@ setwd("c:/Documents/my/directory")
 ```
 
 ### Setting Up the R Environment <a id="setting-up-r-environment"></a>
+Here is a brief summary of the important panels in RStudio.
+
+![rstudiopanels](rstudiobreakdown.png)
+
 After R and RStudio are succesfully installed, open up your RStudio console to install Shiny. Type in the following code line into the command line on the console:
 
 ```
@@ -124,11 +130,16 @@ After a compatable dataset has been selected, the next step is to read the data 
 
 ![](files.png)
 
-Then we do some coding! To read the dataset into our global code environment, we use the following line of code:
+Then we do some coding! To read the dataset into our global code environment, we use the following line of code in the code editor section:
 
 ```
 bestselling_books <- read.csv("bestselling_books.csv)
 ```
+If you want to use the sample dataset I've provided, use this [link](https://raw.githubusercontent.com/cynthiagong/DH199/main/tutorial/bestselling_books.csv)), right click on the page, and save as "bestselling_books" into your Working Directory.
+
+![githubdownload](githubdata.gif)
+
+<br>
 
 For the purposes of the tutorial, before we read in your data, clear out every single line of sample code RStudio provided in your app.R file before you proceed to the next step. This way we can start with a blank slate. 
 
@@ -206,7 +217,7 @@ ui <- fluidPage(
 )
 ```
 
-Once we have our front-end code finalized, it is time to write our back-end server funcion.
+Once we have our front-end code finalized, it is time to write our back-end server function.
 
 ### Coding the Back-End <a id="coding-the-back-end"></a>
 
@@ -219,6 +230,8 @@ server <- function(input, output) {
 
 }
 ```
+The server function code will go right underneath the front-end code in the code editor.
+
 The ```render``` functions are nested within the  ```server``` function. A new ```render``` function will be called for every single  ```output``` function called earlier. Furthermore, there are different types of ```render``` functions that correspond with the different types of objects you want the code to render. 
 
 | **Render Function** | **Output Function** | **Comments** |
